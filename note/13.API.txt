@@ -1,0 +1,65 @@
+JDK 라이브러리(자바 표준 라이브러리)
+
+
+Java 필수 API
+	편리하게 사용할 수 있게 여러가지 기능을 정의해 둔 클래스. 3000개가 넘는 클래스들이 있따.
+
+	String : 객체 자료형. 예외적으로 생성자를 사용하지 않고 초기화 할 수 있게 해두었다.
+	String의 주요 기능들:
+			String concat(String str) : 저장된 문자열과 str문자열을 결합
+			String substring(int begin) : 시작위치부터 마지막까지의 문자열을 반환
+			int length() : 문자열 길이를 반환
+			String toUpperCase() : 대문자로 반환
+			String toLowerCase() : 소문자로 반환
+			char charAt(int index) : index 위치의 문자를 반환
+			int indexOf(char ch) : 첫번째 ch문자의 위치를 반환
+			int lastIndexOf(char ch) : 마지막 ch문자의 위치를 반환
+			boolean equals(String str) : 지정된문자열과 str문자열이 같은지 비교
+			boolean equalslgnoreCase(String str) : 대소문자구분없이 지정된문자열과 str문자열이 같은지 비교
+			String trim() : 문자열 앞뒤 공백제거
+			String replace(char old, char new) : 문자열 내의 old문자를 new문자로 반환
+			String  repalceAll(String old, String new) : 문자열 내의 old문자열을 new로 반환
+
+
+	String의 문제점 :  메모리를 과소비한다. 초기화 된 데이터에 변화가 생기면 기존에 있던 것을 다시 사용하지 않고 새로운 메모리를 사용한다
+	StringBuffer와 StringBuilder : String의 문제점을 보완하기 위한 클래스. 객체 내부에 있는 buffer(데이터를 임시로 저장하는 메모리) 에 문자열의 내용을 저장하고 그 안에서 추가, 수정 삭제 등의 작업을 한다. 
+
+	StringBuilder의 메소드
+
+		append(String str) : 문자열 str 추가
+		insert(int index, String str) : 특정 index에 문자열 str 추가
+		delete(int start, int end) : index위치 start부터 end앞 까지 삭제
+		deleteCharAt(int index) : index위치의 특정 문자 하나 삭제
+		int capacity() : 문자열 크기 반환
+		ensureCapacity(int size) : 버퍼의 크기를 size만큼 늘리는 메소드
+		trimToSize() : 과도한 버퍼 크기를 적당하게 줄이는 메소드
+
+
+	System.currentTimeMillis() : 1970년도부터 현재까지의 밀리세컨(1/1000초), 속도 테스트에 사용
+	StringTokenizer : 문자열 분할 
+
+날짜 관련 API
+*Calendar : 싱글톤 클래스
+*GregorianCalendar : 일반 클래스
+	DAY_OF_WEEK 월,화,수..
+	DAY_OF_YEAR 그해 날짜
+	WEEK_OF_MONTH 그달의 몇째주인지
+	DATE나 DAY_OF_MONTH 그달의 날짜
+	WEEK_OF_YEAR 그 해에서의 몇째주인지
+	MONTH 달의 이름, month의 경우 시스템 내에서 0부터 시작해 +1해줘야한다
+*DateFormat
+	y년 M월 
+	d일 
+	D 월구분없는일(1~365) 
+	E 요일 
+	a오전/오후 
+	W월의 몇번째 주 
+	w 년의 몇번째주
+	H시(0~23)
+	h시(1~12)
+	m 분 
+
+
+
+
+ 
