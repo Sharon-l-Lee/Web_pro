@@ -1,0 +1,34 @@
+수학 관련 API
+
+수학적 계산에 사용되는 클래스 Math
+
+		Math.pow(2, 3): 2의 3승 
+		Math.abs(-9.9) : -9.9의 절대값
+		Math.sqrt(16) : 16의 제곱근
+		Math.min(4, 7) : 4와 7중에 작은값
+		Math.max(7, 9) : 7과 9중 최대값
+
+	올림, 내림,반올림의 사용 
+
+		Math.ceil(9.12) : 9.12의 올림
+		Math.round(9.69) : 9.69의 반올림
+		Math.floor(9.69) : 9.69 버림
+
+	소숫점 한 자리에서의 올림, 내림, 반올림
+		Math.ceil(9.12*10)/10) : 9.12의 올림
+		Math.round(9.69*10)/10.0) : 9.69의 반올림
+		Math.floor(9.69*10)/10) : 9.69 버림
+
+
+Random 클래스 :  다양한 랜덤 숫자를 구할 수 있다.
+	math.random();  : double 타입의 임의의 수를 발생시킨다.
+	random(); : 객체를 생성 후에 실행 가능하다. 
+
+
+Java클래스의 상속 계층
+	object 클래스의 메소드 
+		public String toString() : 객체의 정보를 문자열로 제공하는 목적으로 정의됨
+		public boolean equals(Object obj) : equals를 오버라이드 할 수 있다.
+		public int hashCode() : 자바에서 객체를 식별하는 정수 값인 해시 코드를 반환
+		protected Object Clone()  : 객체를 복사하는데 사용한다. Cloneable 인터페이스를 구현한 클래스의 인스턴스만 복제할 수 있다.
+		public Class getClass() : 객체의 클래스 이름을 Class형으로 반환한다
