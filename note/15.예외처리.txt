@@ -1,0 +1,49 @@
+예외처리란?
+	사용자의 잘못된 조작이나 개발자의 잘못된 프로그래밍으로 발생하는 오류가 발생할 경우, 프로그램을 종료하지 않고 정상 실행 상태가 유지되도록 하는 것.
+에러
+	1.문법 에러 :  문법적으로 나타나는 에러
+	
+	2.실행 에러: 1)논리 에러: 개발자가 잘못 작성해 바람직하지 않은 결과가 나오는 경우.
+		    2)시스템 에러: 개발자의 의지와 상관없이 나타나는 에러
+		    3)예외 사항: 정상적으로 프로그램이 동작하는 과정에서 나타나는 에러
+			EX)정수를 0으로 나누는 경우, 배열 인덱스에서 벗어난 경우, 입출력을 위한 파일이 없는 경우
+ 
+예외처리 문법1(try ~ catch)
+
+	try {
+	    try블럭 ; 예외가 발생할 가능성이 있는 명령문들(문제가 발생할 수 있는 로직을 기술)
+
+	}catch(예외타입 예외변수(e)) {
+	    그 예외를 처리할 명령문(try블록안에서 문제가 발생했을 때 대처방안 기술);
+
+	} finally {
+	    예외발생 여부와 상관없이 맨 마지막에 실행할 명령문;
+	}
+
+예외처리 문법2(throws)
+	try ~ catch 예외 처리 방법은 예외가 발생했을 때 자체적으로 해결한다면,
+	 throws의 경우에는 나를 호출한 쪽으로 예외를 넘기는 형식이다.
+
+자주 보게 될 예외들
+	ArrayIndexOutOfBoundsException > 배열을 사용시 존재하지 않는 index값을 호출할 때 발생
+		int[] iArr = {0,1,2,3};
+		System.out.println(iArr[4]);
+	
+	NullPointerException > 존재하지 않는 객체를 가리킬 때 발생
+		String str = null;
+		char c = str.charAt(0);
+
+	NumberFormatException > 숫자로 변경할 수 없는 문자열을 변경하려고 할 때 발생
+		public static void main(String[] args) {
+			String str = "aa";
+			String str1 = "10     ";
+			int i = 10;
+			int j = Integer.parseInt(str)+i;
+		j = Integer.parseInt(str1.trim())+i;
+		}	
+
+
+	※ DB 관련 예외
+		ClassNotFoundException : 드라이브 이름을 찾지 못했을 때
+		SQLException : db url, id, pw가 올바르지 않을 때
+
