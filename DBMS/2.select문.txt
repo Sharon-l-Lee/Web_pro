@@ -1,0 +1,102 @@
+SQL 문장 작성법
+	SQL 문장은 대소문자를 구별하지 않다.
+	SQL 문장은 한 줄 또는 여러 줄에 입력될 수 있다.
+	절은 보통 읽고 편집하기 쉽게 줄을 나누는 것을 권장한다.
+	탭과 줄 넣기(들여쓰기)는 코드를 보다 읽기 쉽게 하기 위해 사용을 권장한다.
+	일반적으로 키워드는 대문자로 입력한다.
+	키워드를 제외한 다른 모든 단어, 즉 테이블 이름, 열 이름은 소문자로 입력하기도 합니다
+	명령어의 끝은 ;
+	주석처리는 --
+
+
+
+SELECT문의 사용
+
+SELECT [DISTINCT] {*, column(필드명) [Alias](별명), ….}
+	FROM 테이블명
+	[WHERE condition] :특정 조건만 출력
+	[ORDER BY {column, expression} [ASC|DESC]] ;
+
+	SELECT : 원하는 컬럼 선택
+	*	: 테이블의 모든 column 출력
+	alias(별칭): 해당 column에 대한 다른 이름 부여
+	DISTINCT: 중복 행 제거 옵션
+	FROM  : 원하는 데이터가 저장된 테이블 명을 기술
+	WHERE : 조회되는 행을 제한하기 위한 조건 추가
+	condition : column, 표현식, 상수 및 비교연산자
+	ORDER BY:정렬 (ASC :오름차순default, DECS 내림차순)
+
+SQL 문장 실행
+	SELECT * FROM TAB; --scott(사용자)이 소유하고 있는 table을 전부 보여줌
+	SELECT * FROM dept; -- dept테이블 데이터 전체 보기
+	DESC dept;          -- dept테이블의 구조보기
+		not null : null값이 있으면 안 된다.
+		number(4) : 부서코드는 정수 4자리
+		number(7,2) ; 총자리수 7자리 중 소수점 이하는 2자리
+
+WHERE 조건과 비교연산자 : 같다(=), 크거나같다(>=) 작거나같다(<=) 다르다(<> ^= !=)
+	SELECT EMPNO, ENAME, SAL FROM EMP WHERE SAL = 3000;
+	SELECT empno, ename, sal FROM emp WHERE sal <> 3000;
+	SELECT empno, ename, sal FROM emp WHERE sal != 3000;
+	SELECT empno, ename, sal FROM emp WHERE sal ^= 3000;
+
+	SQL에서 문자열이나 날짜는 반드시 작은따옴표안에 표시함.
+	SELECT * FROM emp WHERE deptno=10;
+	SQL문에 사용되는 키워드인 SELECT나 FORM이나 WHERE 등은 대소문자를 구별하지 않지만 테이블 내에 저장된 데이터 값은 대소문자를 구분하기에 ‘FORD’ 와 ‘ford’는 다릅니다. 
+	SELECT EMPNO, ENAME, SAL FORM emp WHERE ename=’FORD’;
+
+	날짜포맷은 기본적으로 다음과 같다는 전제로 실행
+	ALTER SESSION SET NLS_DATE_FORMAT=’RR/MM/DD’;
+
+논리연산자
+	SELECT * FROM emp WHERE deptno=10 AND job=’MANAGER’;
+	SELECT * FROM WHERE deptno=10 OR job=’MANAGER’;
+	SELECT * FROM emp WHERE NOT deptno = 10; 
+	SELECT * FROM emp WHERE sal>=2000 AND sal<=3000;
+
+
+산술표현식
+	SELECT ename, sal, sal+300 AS “올릴월급” FROM emp;
+		emp 테이블의 sal을 300 증가 시키기 위해 덧셈연산자를 사용하여 sal+300을 출력. 
+		계산된 결과인 열[SAL+300]은 emp 테이블의 새로운 열로 추가되지 않고 출력만 됨.
+
+	SELECT ename, sal, comm, sal*12 월급합, sal*12+comm 연봉 FROM emp;
+		null값의 처리. 행이 특정열에 대한 데이터값이 없다면 그 값은 null이 된다.
+		null값은 이용할 수 없거나 지정되지 않았거나 알 수 없거나 적용할 수 없는 값. 
+		Null은 0이나 공백이 아니다. 0은 숫자이며 공백은 문자로 볼 수 있다. 어떠한 datatype도 null값을 포함할 수 있으나 주키는 null값이 허용되지 않는다. 
+		null값을 포함한 산술표현식 결과는 NULL이 된다. 따라서 NVL함수를 이용한다. 
+		SELECT ename, sal, com, sal*12, sal*12+NVL(comm,0) FROM emp; 
+		NVL(expr1, expr2)  expr1은 null값을 포함하고 있는 column이나 표현식                       
+		expr2는 null변환을 위한 목표값이며 expr1과 expr2는 같은 타입이여야 한다
+		NVL(hiredate , ‘99/01/01’) DATA형에서의 예
+		NVL(job, ‘업무없음’)      char형에서의 예
+		SELECT ename, sal, NVL(comm, 0) FROM emp;
+
+
+연결연산자 (||) ; 열이나 문자를 다른 열에 연결하는 연산
+	SELECT ename || ‘  ‘ || job as “employees” FROM emp;
+	SELECT ename || ‘ is a ‘ || job as “employees Details” FROM emp; 
+	SELECT ename || ‘ : 1 year salary = ‘ || sal*12 FROM emp;
+		 별칭으로 프로그래밍시 수고를 덜 수 있다.. Ex. rs.getString(“별칭/컬럼명”);
+
+
+
+중복제거 DISTINCT
+	DISTINCT를 사용하여 나타나는 결과는 기본적으로 오름차순 정렬
+	SELECT DISTINCT job FROM emp;
+
+SQL 연산자
+	DISTINCT 필드; 필드 중복제거
+	BETWEEN a AND b : a부터 b (a,b값 포함. a가 작은 값) 
+	IN(list)            : list의 값 중 어느 하나와 일치한다
+	LIKE pattern       : 검색하고자 하는 값을 정확히 모를 경우 pattern과 일치하는지를 검색한다.
+		% : 문자가 없거나, 하나 이상의 문자가 어떤 값이 와도 상관없다.
+		_ : 하나의 문자가 어떤 값이 와도 상관없다
+	IS NULL                : null값을 가졌다
+	NOT BETWEEN a AND b : a와 b 사이에 있지 않다(a,b값 포함되지 않음)
+	NOT IN (list)            : list의 값과 일치하지 않는다.
+	NOT LIKE pattern       : 문자형태가 pattern과 일치하지 않는다.
+	NOT IS NULL           : null값을 갖지 않다
+
+
+
