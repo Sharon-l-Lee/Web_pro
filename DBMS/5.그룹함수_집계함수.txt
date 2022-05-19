@@ -1,0 +1,39 @@
+그룹함수란?
+	
+	여러 행 또는 테이블 전체의 행에 대해 함수가 적용되어 하나의 결과값을 가져오는 함수.
+	GROUP BY절을 이용해 그룹 당 하나의 결과가 나오도록 그룹화 할 수 있다.
+	HAVING절을 사용해서 그룹함수로 조건을 비교할 수 있다.
+	COUNT(*)를 제외한 모든 그룹함수는 NULL값을 고려하지 않는다.
+	MIN, MAX그룹함수는 모든 자료형에 대해 사용할 수 있다.
+
+	
+그룹함수 종류 : 하나 이상의 행을 그룹으로 묶어 연산해 총합, 평균 등 하나의 결과로 나타냄
+	SUM : 그룹의 누적 합계
+	AVG : 그룹의 평균
+	COUNT : 그룹의 총 개수
+	MAX : 그룹의 최대값
+	MIN : 그룹의 최소값
+	STDDEV : 그룹의 표준편차
+	VARIANCE : 그룹의 분산
+
+GROUP BY 절
+SELECT column, group_function
+        FROM table
+	WHERE condition(연산자)
+	 GROUP BY column,;
+
+	합계, 평균, 최대값이나 최소값 등을 어떤 컬럼을 기준으로 그 컬럼의 값별로 볼 때,
+	GROUP BY 절 뒤에 해당 칼럼을 기술.
+	GROUP BY 절 다음에는 별칭을 사용할 수 없다.
+
+
+HAVING 조건
+	SELECT column, group_function
+		FROM table
+			[WHERE condition]
+			[GROUP BY group_by_expression]
+			[HAVING   group_condition]
+			[ORDER BY column] ;
+
+
+	HAVING 절은 GROUP BY 절 앞에도 쓸 수 있지만 GROUP BY 절 다음에 기술하는 것이 권장된다.
