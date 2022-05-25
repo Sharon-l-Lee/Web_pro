@@ -1,0 +1,61 @@
+css에서 사용하는 단위 : em(폰트 2em : 기본 폰트 *2), %, px
+
+url() : 백그라운드 이미지, 폰트 지정의 속성값으로 많이 사용. 
+	@font-face {
+         	   font-family: 'Sunflower-Bold';
+       	     src: url('Sunflower-Bold.ttf');
+     	   }
+                
+	 background-image:url('사진이름.jpg');
+
+display 속성 : 화면에 어떻게 보이는지를 설정하는 속성. 
+	block : div태그 p태그 li태그 - 높이의 속성이 있다.
+	inline : span태그 - 높이의 속성이 없다.
+	inline-block : block의 속성을 갖고 옆으로 붙여 나가는 것 - 높이의 속성이 있다.
+
+visibility 속성:
+	visibility:hidden은 공간은 확보, 안보임
+	display:none은 공간도 사라짐
+
+opacity 속성 : 투명도를 조절하는 속성. 
+
+margin 및 padding 속성: 
+	margin: 밖여백
+	padding: 안여백
+
+box-sizing 속성 : box-sizing속성으로 전체 사이즈 변경 가능
+
+border 속성 : 테두리 속성 변경 가능
+
+글자 관련된 속성들 : 
+	font-family(글꼴)
+	font-size(크기)
+	font-style(이텔릭체)
+	font-weight(진하게)
+	line-height(행간격 조정, 세로축에 대한 정렬 용도)
+	text-align(글자 정렬)
+	text-decoration(간단한 글꼴 모양의 속성)
+
+position 속성 : 
+	(1) absolute 속성값 : 절대적 기준, 해당 태그를 감싸는 상단이 기준.
+	(2) fixed 속성값 : 스크롤을 해도 화면상에서 움직이지 않고 fixed된다. 
+	(3) static 속성값 : 블록형태로 쌓인다. 디폴트값. static을 사용하면 top과 left가 의미없다.
+	(4) relative 속성값 :상대적 좌표
+	(5) relative와 absolute의 혼합 사용 : 안쪽에 absolute 포지션을 두면 밖에는 relative포지션
+
+float 속성 : 요소의 위치를 설정하기 위한 속성
+	float: left(왼쪽으로 띄우기)
+	float: right(오른쪽으로 띄우기)
+
+웹 폰트 : 인터넷만 연결되어 있다면, 다양한 폰트를 웹사이트에서 끌어 쓸 수 있다.
+	ex)http://fonts.google.com
+	<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+
+로컬 폰트: 다운로드 받은 폰트를 사용한다
+	@font-face {
+	font-family : '(일반적으로 폰트 명 사용)';
+	src: url('font/폰트파일명');
+	}
+
+gradient 속성 : 2가지 이상의 색을 표현할 때 사용되는 속성
+	
