@@ -1,0 +1,40 @@
+조건문
+	if문, switch문, 짧은조건문, 내장객체(document, Date, Math)
+	*소문자: 그냥 사용 가능
+	*대문자 new로 객체 만들어서 사용 가능
+
+If, if else, if else if
+<script>
+ 	   var date = new Date();
+   	 var hour = date.getHours();
+   	 if (hour < 12) {
+      	alert("오전");
+      	document.write('<img src="am.jpg" alt="오전사진">');
+   	 } else {
+  	    alert("오후");
+     	 document.write('<img src="pm.jpg" alt="저녁입니다">');
+   	 }
+  </script>
+
+
+switch 조건문
+
+
+	switch(비교할 값) {
+		case 값: 
+			문장; break;
+		case 값: 
+			문장; break;
+		Default:
+			문장; break;
+	}
+
+삼항연산자
+	(불 표현식)? (참일 때 실행) : (거짓일 때 실행);
+
+
+
+짧은 조건문
+	짧은 조건문은 논리연산자의 특성을 조건문으로 사용한다.
+	true || OOO -> 우변을 항상 실행하지 않는다.
+	false || XXX ->우변을 항상 실행
