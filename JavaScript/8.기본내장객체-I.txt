@@ -1,0 +1,54 @@
+Number : 숫자 객체
+String : 문자열을 다루기 위한 객체
+Array : 배열을 만들어 주는 객체
+Date : 날짜와 시간을 처리하기 위한 객체
+Math : 수학 계산을 위한 객체
+
+Object객체 : 자바스크립트의 최상위 객체
+	생성 : var object = {};
+	        var object = new Object();
+
+속성과 메소드
+	constructor() : 객체의 생성자함수
+	toString():객체를 문자열로 바꿈
+	valueOf():객체의 값
+
+모든 객체에 메소드 추가
+	Object 객체는 모든 자바 스크립트 객체의 최상위 객체이므로 Object 객체의 프로토타입에 속성 또는 메서드를 추가하면 모든 객체에서 활용할 수 있다.
+
+Number객체
+	toExponential():숫자를 지수 표시로 나타낸 문자열을 리턴
+	toFixed():숫자를 고정 소수점 표시로 나타낸 문자열을 리턴.
+	toPrecision():숫자를 길이에 따라 지수 혹은 고정 소수점 표시로 나타낸 문자열을 리턴
+
+String객체
+	속성: length : 문자열의 길이를 나타냄
+	메소드: charAt(position): position에 위치하는 문자를 리턴.
+	          charCodeAt(position):position에 위치하는 문자의 유니코드 번호를 리턴
+	          concat(args):매개변수로 입력한 문자열을 이어서 리턴
+	          indexOf(searchstring, position):앞에서부터 일치하는 문자열의 위치를 리턴
+	          lastIndexOf(searchString, position):뒤에서부터 일치하는 문자열의 위치를 리턴
+	          match(regExp):문자열 내에 regExp가 있는지 확인
+	          replace(regExp, replacement): regExp를 replacement로 바꾼 후 리턴
+	          search(regExp):regExp와 일치하는 문자열의 위치 리턴
+	          slice(start,end):특정 위치의 문자열 추출해서 리턴
+	          split(separator, limit):separator로 문자열 잘라서 배열을 리턴
+	          substr(start,count):start부터 count만큼 문자열을 잘라서 리턴
+	          substring(start, end) :start부터 end까지 문자열을 잘라서 리턴
+	          toLowerCase():문자열을 소문자로 바꿔서 리턴
+	          toUpperCase():문자열을 대문자로 바꿔서 리턴
+
+	String 객체의 HTML메소드
+		anchor(): a 태그로 문자열을 감싸서 리턴
+		big(): big태그로 문자열을 감싸서 리턴
+		blink():blink태그로 문자열을 감싸서 리턴
+		bold():b 태그로 문자열 감싸서 리턴
+		fixed():tt태그로 문자열을 감싸서 리턴
+		fontcolor(colorString):font태그로 문자열을 감싸고 color속성을 줘서 리턴
+		fontsize(fontSize):font태그로 문자열 감싸고 size속성을 줘서 리턴
+		italics() : i태그로 문자열 감싸서 리턴
+		link(linkRef):a태그에 href속성을 지정해 리턴
+		small():small태그로 문자열을 감싸 리턴
+		strike():strike태그로 문자열을 감싸 리턴
+		sub():sub태그로 문자열을 감싸 리턴
+		sup():sup태그로 문자열을 감싸 리턴

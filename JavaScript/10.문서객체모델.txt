@@ -1,0 +1,32 @@
+문서객체모델(DOM)
+	HTML 페이지를 인식하는 방식. 
+
+문서 객체모델과 관련된 용어
+	html - head - title - "index"
+	       - body - h1 - "text node"
+		    -img
+	문서객체: 태그를 자바스크립트에서 이용할 수 있는 객체로 만든 것
+	노드: 문서객체모델. 트리모양의 문서 객체 모델 중 각 요소
+
+문서객체생성
+	1) 정적 문서객체 생성: HTML 페이지에 적혀있는 태그를 읽으며 생성하는 것
+	2)동적 문서객체 생성: 원 페이지에는 없던 문서 객체를 생성하는 것
+		Document객체의 노드 생성
+			createElement(tagName): 요소 노드 생성
+			createTextNode(text):텍스트 노드 생성
+		문서 객체 연결
+			appendChild(node):객체에 노드 연결
+	
+문서 객체 가져오기
+	이미 존재하는 HTML태그를 자바 스크립트로 가져오는 여러가지 방법
+	1)getElementById(id) : 태그의 id속성이 id와 일치하는 문서 객체를 가져온다
+	2)getElementByClass("class이름"): class와 일치하는 문서 객체를 가져온다
+	3)getElementsByName(name) 태그의 name 속성이 name과 일치하는 문서 객체를 배열로 가져온다
+	4)getElementsByTagName(‘태그명’): 태그 이름을 가진 문서객체를 가져온다
+	5)document.querySelector(선택자) :선택자로 가장 처음 선택되는 문서 객체를 가져온다
+	6)document.querySelectorAll(선택자): 선택자로 선택되는 문서 객체를 배열로 가져온다
+
+문서 객체 없애기 
+	removeChild(child)
+
+	
