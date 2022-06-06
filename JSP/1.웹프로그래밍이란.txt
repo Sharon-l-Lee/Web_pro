@@ -1,0 +1,45 @@
+웹 프로그래밍이란?
+	웹을 기반으로 작동되는 프로그램을 구현하는 행위
+	
+	웹: 1개 이상의 사이트가 연결되어있는 인터넷 서비스의 한 종류.
+	인터넷:1개 이상의 네트워크가 연결되어 있는 형태.
+	프로토콜(Protocol) : 네트워크상에서 약속한 통신규약 (Http;hypertext transfer protocol 받은 정보를 화면에 출력하기를 원하는 프로토콜, FTP;file Transfer protocol, SMTP;simple mail transfer protocol, POP;Post Office Protocol) 
+	IP : 네트워크상에서 컴퓨터를 식별할 수 있는 주소
+	DNS : IP주소를 인간이 쉽게 외우도록 맵핑한 문자열로 맵핑
+	Port : IP주소가 컴퓨터를 식별할 수 있게 해준다면, Port번호는 해당컴퓨터의 구동되고 있는 프로그램을 구분할 수 있는 번호
+
+	*url의 구성 : 프로토콜. 서버주소. 포트번호. 경로(웹페이지상세주소)?쿼리문자열(추가로 서버에 보내는 데이터. 같은 경로라 해도 입력한 값에 따라 다른 결과를 보여줘야 할 때 쿼리 문자열을 사용한다)
+
+웹 프로젝트
+	J2EE    ->  Tomcat     -> 웹 컨테이너
+	           (컴포넌트관리)   (JSP, Servlet, HTML)
+
+	컴포넌트 : JSP, Servlet, HTML 등의 웹어플리케이션을 구현하기 위한 구성요소
+	JSP(Java Server Page) ; HTML 파일 내에 java 언어를 삽입한 문서
+	Servlet(Server Applet) ; Java 언어로 이루어진 웹 프로그래밍 문서
+
+웹 프로그램의 동작
+	웹서버 : 클라이언트의 요청에 의해 정보를 제공해 주는 서버
+		별도의 구현이 필요한 로직이 있을 경우 웹어플리케이션 서버에 요청.
+	웹브라우저 : 웹서버에 정보를 요청하고, 웹서로부터 정보를 받는 매개체. 이때 HTTP 프로토콜을 사용함
+
+
+웹 프로그래밍 언어
+	ASP : Visual Basic 언어 기반. ActiveX개발 기능 제공. 특정 웹 서버와 OS에 동작한다는 단점. Windows 플랫폼에서 웹 서버로 IIS(Internet Information Server)만 사용
+	PHP : ASP와 달리 특정 영역에서만 동작하지 않고, C언어와 유사.
+	Servlet : Java 기반. 동적 컨텐츠 생성 기술. Java 코드 안에 HTML 태그가 혼재.
+	JSP : Java 기반. 동적 컨텐츠 생성 기술. 사용자가 직접 태그를 정의해서 사용할 수 있는 사용자 정의 태그 지정 가능. JSP 코드를 만들면 Servlet 자동 생성
+
+
+JSP와 Java의 관계
+	JSP는 Java Server Pages의 약자로 자바 서블릿(Servlet) 기술을 확장시킨 웹 환경 상에서 100% 순수한 자바만으로 서버 사이드 모듈을 개발하기 위한 기술
+	JSP는 DBMS와 같은 백 엔드 서버(Back-end Server)와 연동하여 이들 백엔드 서버의 데이터를 가공하여 웹 상의 최종적 사용자에게 디스플레이 할 수 있고, 여러 조건에 따라 디스플레이할 수 있는 내용들을 동적으로 처리할 수 있는 기능을 제공하고 있다.
+
+HTTP 프로토콜과 Servlet 동작원리
+	HTTP 프로토콜 : HTTP은 비 연결(Connectionless: 클라이언트의 요청에 응답한 후 바로 연결을 끊음)과 비 상태(Stateless: 서버의 상태가 어떤지 간에 상관없이 요청을 함)의 특징을 가짐
+
+	JAVA : JAVA웹어플리케이션을 구현하기 위한 선행 학습 필요
+	HTML : 웹 페이지를 구현하기 위한 기본 언어
+	JavaScript : 클라이언트 기능을 구현하기 위한 언어
+	Jquery : JavaScript의 대표적인 라이브러리로써, 클라이언트 사이드 스크립트 언어를 단순화 할 수 있다.
+	CSS : 웹어플리케이션의 레이아웃 및 스타일을 지정하는 언어

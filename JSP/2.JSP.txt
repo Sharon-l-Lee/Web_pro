@@ -1,0 +1,15 @@
+JSP란
+	동적 웹어플리케이션 컴포넌트(컴포넌트는 JSP, HTML 등 웹 어플리케이션을 이루는 요소를 컴포넌트라 하고 그 컴포넌트를 담고 있는 것을 컨테이너라고 함)
+	.jsp 확장자.
+	클라이언트의 요청에 동적으로 작동하고, 응답은 html을 이용
+	jsp는 서블릿으로 변환되어 실행(컴파일되면 톰캣서버가 변환)
+	MVC패턴에서 view로 이용됨.
+	*M(model) = 데이터베이스 연동하는 부분
+	V(view) = 자바 소스
+	C(controller) = 자바 안에 html이 들어있는 부분
+	
+	Request - Controller -Model(DB연동 포함) -View - response
+
+JSP아키텍처
+	.jsp파일(hello.jsp) > java파일로 변환 > java file(hello_jsp.java) > 컴파일 > class 파일(hello_jsp.class)
+	파일을 생성하면 소스파일에 있는 것이 아니라 톰캣 폴더 내 work 안에서 실행하게 된다.

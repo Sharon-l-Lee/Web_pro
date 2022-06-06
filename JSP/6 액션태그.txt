@@ -1,0 +1,26 @@
+액션태그
+	JSP 페이지에서 어떤 동작을 하도록 지시하는 태그
+	XML 문법을 따르므로 단독 태그일 경우에는 반드시 ‘/>’로 끝나도록 만들어야 한다
+	페이지 모듈화와 요청 흐름 제어 역할
+	JSP페이지 내에서 어떤 동작을 하도록 지시하는 태그.
+
+	1)표준액션 : JSP 페이지에서 바로 사용할 수 있는 태그 <jsp:~>
+	2)커스텀 액션(custom action) : 별도의 라이브러리를 설치해야만 사용할 수 있는 태그<c:set ~>
+
+
+forward, include, param태그
+
+	1)forward :  현재의 페이지에서 다른 특정페이지로 전환할 때 사용. 
+		단 URL은 변하지 않는다. URL과 페이지 내용이 상이하다. request객체는 그대로.
+
+
+	2)include : 현재 페이지에 다른 페이지를 삽입할 때 사용 
+		<%@ inclue file = "copyright.html'%>과 유사하다. 
+		중복영역을 처리하는데 사용된다.
+		*<jsp:include>는 따로따로 컴파일 되고 <%@ inclue ~ > 는 하나로 컴파일된다.
+		ex) <jsp:include page="member/footer.jsp"/>
+		    <%@include file="member/footer.jsp" %>
+
+	3)param : forward 및 include 태그에 데이터 전달을 목적으로 사용되는 태그.
+		이름과 값으로 구성된다.
+		ex) <jsp:param name="id" value="hong"/>
