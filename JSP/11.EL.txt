@@ -1,0 +1,50 @@
+EL이란?
+	Expression Language, 표현식(<%= ~%>)을 대신해 조금 더 간략하게 값을 표현하는 언어. 액션 태그를 조금 간략하게 표현한 것.
+	표현식 (<%= value%>) →  EL표기법(${value })
+
+EL연산자 (EL표기법 안에서 사용할 수 있는 연산자)
+	산술 : + - * / %
+	관계 : ==(eq)  != <(lt) >(gt) <= >=
+	조건: a ? b : c 
+	논리 && ||
+	${ empty 값} 공백이거나 null일 때 true
+	${not empty 값} 공백이거나 null이 아닐 때 true
+
+액션태그로 사용되는 EL
+	<jsp:getProperty name="member" property="name"/> → ${ member.name }으로 표현
+	빈태그나 jstl태그로 인해 생성된 객체만 el표기법 안에 사용 가능하며, getter를 스스로 찾아서 값을 보여준다.
+	ex)
+		<%=member.getName() %> →  ${member.name }
+		<%=member.getId() %> →   ${member.id }
+		<%=member.getPw() %> →    ${member.pw }
+
+	
+내장 객체
+	scope와 관련된 객체
+		pageScope : page객체의 attributte를 참조하는 객체(page attribute의 집합) Map 타입
+		requestScope : request객체의 attribute를 참조하는 객체(rquest attribute의 집합) Map 타입 (request객체가 새로 만들어지기 전까지 유효) 
+		sessionScope : session객체의 attribute를 참조하는 객체(session attribute의 집합) Map 타입 (session은 브라우저를 닫기 전까지 유효)
+		applicationScope : application객체의 attribute를 참조하는 객체(application attribute의 집합) Map 타입 (application이 떠있는 동안 유효)
+
+	그 외 자주 사용하는 객체
+		param : 요청 파라미터를 참조하는 객제(웹 브라우저로부터 입력된 데이터의 집합) Map 타입
+		paramValues : 요청 파라미터(배열)를 참조하는 객제(웹 브라우저로부터 입력된 데이터의 집합- 같은 이름의 데이터가 여럿일 때 사용) Map 타입
+		initParam : 초기화 파라미터를 참조하는 객체(웹 어플리케이션의 초기화 파라미터의 집합) Map 타입
+		cookie : cookie객체를 참조하는 객체(웹 브라우저로부터 전송된 쿠키의 집합)
+
+Atrribute
+	<%=pageContext.getAttribute("pageName") %> → ${pageName }
+	<%=request.getAttribute("requestName") %> →  ${requestName }
+	<%=session.getAttribute("sessionName") %> → ${sessionName }
+	<%=application.getAttribute("applicationName") %> → ${applicationName }
+
+
+데이터공유 
+	서블릿과 컨테이너 간의 통신. 여러 서블릿에서 특정 데이터를 공유해야 할 경우 context Parameter를 이용해서 web.xml에 데이터를 기술하고 공유하면서 사용할 수 있다.  
+	
+
+	<%=getServletContext().getInitParameter("contextId") %> → ${initParam.contextId }
+	<%=getServletContext().getInitParameter("contextPw") %> → ${initParam.contextPw }
+	<%=getServletContext().getInitParameter("contextPath") %> → ${initParam.contextPath }
+
+
