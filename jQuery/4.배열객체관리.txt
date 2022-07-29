@@ -1,0 +1,29 @@
+배열객체관리
+
+1.for, for-in
+2. .each()메서드
+
+	$.each(배열객체, function(index, item){
+		index 활용, 배열 안에 있는 단위 item 활용
+	});
+
+	$(배열객체).each(function(index, item){
+	
+	});
+
+
+	ex)
+
+	$(document).ready(function(){
+			var array = [ {name:'네이버',     link:'http://www.naver.com'},
+				    {name:'다음',       link:'http://www.daum.net'},
+				    {name:'구글',       link:'http://www.google.com'}];
+
+			$.each(array, function(idx, item){
+				var out = '<h1><a href="'+item.link+'">'+item.name+'</a></h1>';
+				$('body').html($('body').html()+out);
+			});
+			$(array).each(function(idx, item){
+				var out = '<h1><a href="'+item.link+'">'+item.name+'</a></h1>';
+				$('body').html($('body').html()+out);
+			});
